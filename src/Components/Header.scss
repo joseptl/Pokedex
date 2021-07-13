@@ -1,0 +1,35 @@
+
+.navbar{
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.nav{
+    align-self: flex-end !important;
+}
+
+.genList{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    li{
+        cursor:pointer;
+    }
+}
+.titulo{
+    font-size: 20px;
+}
+
+.dropdown-menu{
+    left:-30px;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: #E65F5F !important;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color:#fff
+}
+
+.item{
+    text-align: left !important;
+}

@@ -1,0 +1,21 @@
+@keyframes animation {
+    0%     {background-color:#bbbbbb}
+    50%  {background-color:#bbbbbbcc;}
+    100%  {background-color:#bbbbbb;}
+}
+
+.pkmnLoad{
+    max-height: 8rem;
+    max-width: 134.41px !important;
+    z-index: 2;
+    position: relative;
+    color: #000;
+    margin: 0.8rem auto;
+    border-radius: 15rem;
+    animation-name: animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;    
+    animation-play-state: running;
+    background-color: #bbbbbb;
+}

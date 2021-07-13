@@ -1,0 +1,129 @@
+.modal-header{
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+    
+}
+
+.subtitle{
+    font-size: 1rem;
+    margin-top: -5px;
+}
+
+.modal-content{
+    border-radius: 1rem !important;
+}
+.detallesPkmn-Body{
+    figure{
+        width: 60%;
+        padding: 0;
+        margin: auto;
+        text-align: center;
+        img{
+            text-align: center;
+            margin: auto;
+            width: 80%;
+        }
+    }
+}
+
+.type-container{
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+
+    div span{
+        padding: 5px;
+        border-radius: 5rem;
+        color: #000;
+        font-weight: 500;
+        width: 100px;
+    }
+}
+.type{
+    border-radius: 5rem;
+    font-size: .8rem;
+    min-width: 65px;
+    padding: auto;
+    margin: auto;
+    justify-self: center;
+    margin: 5px;
+}
+
+.wh-container{
+    text-align: center;
+    p{
+        font-size: .9rem;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        span{
+            margin: 4px 10px;
+        }
+    }
+}
+
+.description{
+    width: 100%;
+    border-radius: 50px;
+    text-align: justify;
+    padding: 5px;
+    height: fit-content;
+    overflow-wrap: normal;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    h5{
+        font-size: 1rem;
+        display: block;
+        padding-left: 35px;
+        padding-top:5px;
+        margin-bottom: 5px;
+    }
+    p{
+        font-size: .8rem;
+        width: 80%;
+        margin: auto;
+        margin-bottom: 0;
+        padding-bottom: 5px;
+    }
+}
+
+.stats-container{
+    h5{
+        font-size: 1rem;
+        display: block;
+        padding-left: 35px;
+        padding-top:0px;
+        margin-bottom: 5px;
+    }
+    ul{
+        padding: 0 !important;
+        list-style: none;
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media (min-width:1024px) {
+    .type{
+        font-size: 1rem;
+        min-width: 85px;
+    }
+    .wh-container{
+        p{
+            span{
+                font-size: 1rem;   
+            }
+        }
+    }
+    .description{
+        h5{
+            font-size: 1.2rem;
+        }
+        p{
+            font-size: 1rem;
+        }
+    }
+}
