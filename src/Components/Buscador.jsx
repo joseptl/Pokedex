@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import Formulario from './Formulario.jsx';
 import ListaPokemonsV2 from './ListaPokemonV2.jsx';
 import './Buscador.scss'
 

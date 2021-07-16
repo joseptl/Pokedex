@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import Buscador from '../Components/Buscador';
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
@@ -7,8 +7,7 @@ import ToTop from '../Components/ToTop';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    NavLink
+    Route
   } from "react-router-dom";
 import './Main.scss';
 

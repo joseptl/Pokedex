@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import { findAllInRenderedTree } from 'react-dom/test-utils';
 import logo from './pokeball.png';
 import './Pokemon.scss';
 

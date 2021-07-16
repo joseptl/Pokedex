@@ -1,8 +1,7 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Navbar, Dropdown, NavDropdown, Nav } from 'react-bootstrap';
+import { Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
-import {NavLink} from 'react-router-dom'
 import './Header.scss'
 
 export default function Header(){

@@ -1,10 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import PokemonV2 from './PokemonV2';
-import Missing from './Missing';
 import Formulario from './Formulario';
 import DetallePkmn from './DetallePkmn';
 import Loading from './Loading'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './ListaPokemon.scss'
 
 export default function ListaPokemonsV2({url}){

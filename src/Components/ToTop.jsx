@@ -1,5 +1,4 @@
-import { Hidden } from '@material-ui/core';
-import React,{useState, useEffect} from 'react';
+import React from 'react';
 import './ToTop.scss'
 
 export default function ToTop({visibility}){
