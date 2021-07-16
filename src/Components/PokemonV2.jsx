@@ -33,10 +33,9 @@ export default function PokemonV2({url, handleShow}){
             }
             setPokemons({...pokemon})
             setReady(true)
-            return controller.abort()
+            
         }
         fetchData(url)
-
     },[url])
         
 

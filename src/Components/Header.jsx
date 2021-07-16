@@ -1,10 +1,11 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Navbar, Dropdown, NavDropdown, Nav } from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
 import {NavLink} from 'react-router-dom'
 import './Header.scss'
 
-export default function Header({handleClick}){
+export default function Header(){
     const generationList=[
         {generacion:"I",
         link:"limit=151&offset=0"},
@@ -23,6 +24,11 @@ export default function Header({handleClick}){
         {generacion:"VIII",
         link:"limit=83&offset=809"}
     ]
+    let history = useHistory();
+
+    function handleClick(e) {
+        history.push(`/Gen-${e}`);
+      }
 
     return(
         <Navbar sticky="top" className="navbar" style={{background:"#ff6a6a"}} variant="dark">
@@ -30,8 +36,8 @@ export default function Header({handleClick}){
             <Navbar.Collapse className="justify-content-end">
                 <Nav className="ml-auto nav">
                     <NavDropdown  title="Generations" id="basic-nav-dropdown">
-                        {generationList.map((e, index)=>{
-                            return <NavDropdown.Item to={`/Gen-${e.generacion}`} key={index} eventKey={e.link} onClick={handleClick}><NavLink className="dropdown-item item" role="button" to={`/Gen-${e.generacion}`}>{e.generacion} Gen</NavLink></NavDropdown.Item>
+                        {generationList.map((g, index)=>{
+                            return <NavDropdown.Item key={index} onClick={(e)=>handleClick(g.generacion)} eventKey={g.link}>{g.generacion} Gen</NavDropdown.Item>
             
                         })}
                     </NavDropdown>
