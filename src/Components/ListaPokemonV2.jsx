@@ -4,6 +4,7 @@ import Formulario from './Formulario';
 import DetallePkmn from './DetallePkmn';
 import Loading from './Loading'
 import './ListaPokemon.scss'
+import Missing from './Missing';
 
 export default function ListaPokemonsV2({url}){
     const [pokemons,setPokemons]=useState([])
@@ -26,7 +27,21 @@ export default function ListaPokemonsV2({url}){
 
 
     const handleChange=(e)=>{
-        setFormValues({...formValues, [e.target.name]:e.target.value})
+        setFormValues({...formValues, [e.target.name]:e.target.value.toLowerCase()})
+    }
+
+    const handleClick=(e,el)=>{
+        console.log(e.target)
+        setFormValues({...formValues, [e.target.name]:el})
+    }
+
+    const handleClear=()=>{
+        setFormValues({
+            name:'',
+            type1:'',
+            type2:''
+    
+        })
     }
 
     useEffect(e=>{
@@ -61,23 +76,22 @@ export default function ListaPokemonsV2({url}){
         fetchData(url)
     },[url])
     
-    /*useEffect(e=>{
-        setData(pokemons.filter(pokemon=>{
-            return pokemon.name.includes(formValues.name)&&pokemon.type1.includes(formValues.type1)&&pokemon.type2.includes(formValues.type2)
-            
-        }))
-    },[formValues])*/
     return(
         <div>
             {(pokemonSelected!==null&&show===true)&&<DetallePkmn show={show} handleClose={handleClose} e={pokemonSelected}/>}
             <div>
                 {pokemons.length>0&&<Formulario
-                onChange={handleChange} 
+                handleClear={handleClear}
+                onChange={handleChange}
+                onClick={handleClick} 
                 formValues={formValues}/>}
             </div>
             <div className="row row-cols-8 ListaPokemon">
                 {pokemons.length===0&&<Loading/>}
-                {(pokemons.length>0)&&pokemons.map((e,index)=><PokemonV2 key={index} data={e} handleShow={handleShow}/>)}
+                {(pokemons.length>0)&&pokemons.filter(pokemon=>{
+            return pokemon.name.includes(formValues.name)&&pokemon.type1.includes(formValues.type1)&&pokemon.type2.includes(formValues.type2)}).map((e,index)=><PokemonV2 key={index} data={e} handleShow={handleShow}/>)}
+            {(pokemons.length!==0&&pokemons.filter(pokemon=>{
+            return pokemon.name.includes(formValues.name)&&pokemon.type1.includes(formValues.type1)&&pokemon.type2.includes(formValues.type2)}).length===0)&&<Missing/>}
             </div>
         </div>
     )

@@ -1,0 +1,38 @@
+.missing{
+    height: 75vh;
+    padding:auto;
+    vertical-align: middle;
+
+    h3{
+        padding-top:125px;
+        margin: auto;
+        vertical-align: middle;
+    }
+}
+
+@media (max-width:425px){
+    .missing{
+        height: 62.5vh;
+    }
+}
+
+@media(min-width:768px){
+    .missing{
+        height: 67vh;
+    }
+}
+
+@media(min-width:936px){
+    .missing{
+        height: 79vh;
+        h3{
+            font-size: 2.5rem;
+        }
+    }
+}
+
+@media(min-width:1440px){
+    .missing{
+        height: 86vh;
+    }
+}
