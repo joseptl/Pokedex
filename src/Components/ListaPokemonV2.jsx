@@ -6,7 +6,6 @@ import Loading from './Loading'
 import './ListaPokemon.scss'
 
 export default function ListaPokemonsV2({url}){
-    const [data,setData]=useState([]);
     const [pokemons,setPokemons]=useState([])
     const [pokemonSelected, setPokemonSelected]=useState(null);
     const [show, setShow] = useState(false);
@@ -40,7 +39,6 @@ export default function ListaPokemonsV2({url}){
     },[url])
 
     useEffect(e=>{
-        setData([])
         setPokemons([])
         const fetchData=async (url)=>{
             const response=await fetch(url);
