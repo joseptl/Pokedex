@@ -1,15 +1,19 @@
+.detallesPkmn {
+  color: #000;
+}
 .modal-header {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   border-top-left-radius: 1rem !important;
   border-top-right-radius: 1rem !important;
+  height: 90px;
 }
 .modalTitle {
   font-family: "Kanit", sans-serif;
 }
 .subtitle {
-  font-size: 1rem;
-  margin-top: -5px;
+  font-size: 0.9rem;
+  display: block;
   font-family: "Kanit", sans-serif;
 }
 

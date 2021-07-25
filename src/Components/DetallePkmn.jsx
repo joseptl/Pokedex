@@ -7,7 +7,6 @@ export default function DetallePkmn({ e, show, handleClose }) {
       <Modal.Header className={e.type1} closeButton>
         <Modal.Title className="modalTitle">
           #{e.id} {e.name[0].toUpperCase() + e.name.slice(1)}
-          <br />
           <span className="subtitle">{e.genera}</span>
         </Modal.Title>
       </Modal.Header>

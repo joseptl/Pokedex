@@ -45,8 +45,13 @@
   color: #e65f5f;
 }
 .dropdown-item:hover {
-  color: #fff;
-  background-color: #e65f5f !important;
+  color: #e65f5f;
+}
+.dropdown-item:active {
+  color: #fff !important;
+}
+.active:hover {
+  color: #fff !important;
 }
 
 .dropdown-item.active,
