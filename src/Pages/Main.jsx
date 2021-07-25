@@ -11,22 +11,18 @@ import SplashScreen from "../Components/SplashScreen";
 
 export default function Main() {
   const [visibility, setVisibility] = useState(false);
-  const [genSelected, setGenSelected] = useState(false);
+  const [showNav, setShowNav] = useState(null);
   const [active, setActive] = useState(false);
 
-  useEffect((e) => {
-    setTimeout((e) => {
-      setActive(true);
-    }, 1500);
-  }, []);
+  useEffect(
+    (e) => {
+      setTimeout((e) => {
+        setActive(true);
+      }, 1500);
+    },
+    [active]
+  );
 
-  const selectGen = () => {
-    setGenSelected(true);
-  };
-
-  const handleHome = () => {
-    setGenSelected(false);
-  };
   window.onscroll = () => {
     if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
       setVisibility(true);
@@ -50,21 +46,19 @@ export default function Main() {
       <SplashScreen />
       {active && (
         <>
-          <Header
-            genSelected={genSelected}
-            handleHome={handleHome}
-            handleGen={selectGen}
-          />
+          <Header showNav={showNav} />
           <Switch>
             <Route exact path="/">
-              <Home handleGen={selectGen} />
+              <Home setShowNav={setShowNav} />
             </Route>
             {generationList.map((e, index) => (
               <Route
                 key={index}
                 exact
                 path={`/Gen-${e.generacion}`}
-                children={<Buscador generation={e.link} />}
+                children={
+                  <Buscador generation={e.link} setShowNav={setShowNav} />
+                }
               />
             ))}
             <Route path="*" component={NotFound} />

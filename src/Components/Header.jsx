@@ -4,8 +4,10 @@ import { Navbar, NavDropdown, Nav } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import titleBall from "./titleBall.png";
 import "./Header.scss";
+import { useState } from "react";
+import { useEffect } from "react";
 
-export default function Header({ handleHome, handleGen, genSelected }) {
+export default function Header({ showNav }) {
   const generationList = [
     { generacion: "I", link: "limit=151&offset=0" },
     { generacion: "II", link: "limit=100&offset=151" },
@@ -20,12 +22,10 @@ export default function Header({ handleHome, handleGen, genSelected }) {
 
   function handleClick(e) {
     history.push(`/Gen-${e}`);
-    handleGen();
   }
 
   function home() {
     history.push("/");
-    handleHome();
   }
 
   return (
@@ -40,24 +40,23 @@ export default function Header({ handleHome, handleGen, genSelected }) {
         <h1 className="titulo">Pokédex</h1>
       </div>
       <Navbar.Collapse className="justify-content-end">
-        <Nav
-          className="ml-auto nav"
-          style={!genSelected ? { display: "none" } : { display: "inline" }}
-        >
-          <NavDropdown title="Generations" id="basic-nav-dropdown">
-            {generationList.map((g, index) => {
-              return (
-                <NavDropdown.Item
-                  key={index}
-                  onClick={(e) => handleClick(g.generacion)}
-                  eventKey={g.link}
-                >
-                  {g.generacion} Gen
-                </NavDropdown.Item>
-              );
-            })}
-          </NavDropdown>
-        </Nav>
+        {showNav && (
+          <Nav className="ml-auto nav">
+            <NavDropdown title="Generations" id="basic-nav-dropdown">
+              {generationList.map((g, index) => {
+                return (
+                  <NavDropdown.Item
+                    key={index}
+                    onClick={(e) => handleClick(g.generacion)}
+                    eventKey={g.link}
+                  >
+                    {g.generacion} Gen
+                  </NavDropdown.Item>
+                );
+              })}
+            </NavDropdown>
+          </Nav>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );

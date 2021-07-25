@@ -2,14 +2,21 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import icon from "./pngegg.png";
 import "./Home.scss";
+import { useEffect } from "react";
 
-export default function Home({ handleGen }) {
+export default function Home({ setShowNav }) {
   let history = useHistory();
 
   function handleClick(e, el) {
     history.push(`/Gen-${(e, el)}`);
-    handleGen();
   }
+
+  useEffect(
+    (e) => {
+      setShowNav(false);
+    },
+    [setShowNav]
+  );
 
   return (
     <>

@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import ListaPokemonsV2 from "./ListaPokemonV2.jsx";
 import "./Buscador.scss";
 
-export default function Buscador({ generation }) {
+export default function Buscador({ generation, setShowNav }) {
   const [url, setUrl] = useState("");
 
   useEffect(
     (e) => {
       if (generation.length > 0) {
         setUrl(`https://pokeapi.co/api/v2/pokemon?${generation}`);
+        setShowNav(true);
       }
     },
     [generation]
