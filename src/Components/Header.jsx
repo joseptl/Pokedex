@@ -4,8 +4,6 @@ import { Navbar, NavDropdown, Nav } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import titleBall from "./titleBall.png";
 import "./Header.scss";
-import { useState } from "react";
-import { useEffect } from "react";
 
 export default function Header({ showNav }) {
   const generationList = [

@@ -12,7 +12,7 @@ export default function Buscador({ generation, setShowNav }) {
         setShowNav(true);
       }
     },
-    [generation]
+    [setShowNav, generation]
   );
 
   return (
