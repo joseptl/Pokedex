@@ -1,95 +1,90 @@
-.ListaPokemon{
-    width:90vw;
-    margin:0 auto !important;
-    padding:0 !important;
-    background-color: #fff;
-    align-content: center;
-    min-height: 75vh;
+.ListaPokemon {
+  width: 90vw;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  background-color: #fff;
+  align-content: center;
+  min-height: 75vh;
 }
-.Pokemon{
+.Pokemon {
+  z-index: 2;
+  position: relative;
+  color: #000;
+  margin: 0.8rem auto;
+  max-height: 8rem;
+  max-width: 134.41px !important;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15rem;
+  cursor: pointer;
+
+  h4 {
     z-index: 2;
     position: relative;
-    color: #000;
-    margin: 0.8rem auto;
-    max-height: 8rem;
-    max-width: 134.41px !important;
-    display: flex;
-    flex-direction: column;
-    border-radius: 15rem;
-    cursor:pointer;
-    
-    
-
-    h4{
-        z-index: 2;
-        position: relative;
-        align-self: flex-end;
-        padding: auto;
-        padding-right: 0;
-    }
-    figure{
-        position: relative;
-        z-index: 2;
-        padding: auto;
-        margin:auto;
-        img{
-            padding: auto;
-            height: 96px;
-            width: 96px;
-        }
-    }
-}
-
-.col-center{
-    float: none;
-    margin: 0.8rem auto;
-}
-
-
-.pokeball{
-    z-index: 1;
-    position: absolute;
-    height: 7.5rem;
-    width: 7.5rem;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    align-self: flex-end;
+    padding: auto;
+    padding-right: 0;
+    font-family: "Kanit", sans-serif;
+  }
+  figure {
+    position: relative;
+    z-index: 2;
+    padding: auto;
     margin: auto;
-    transform: rotate(15deg);
-    filter: invert(100%);
+    img {
+      padding: auto;
+      height: 96px;
+      width: 96px;
+    }
+  }
 }
 
-
-@media (max-width:280px){
-    .Pokemon{
-        margin: 0.8rem .3rem;
-    }
-
+.col-center {
+  float: none;
+  margin: 0.8rem auto;
 }
 
-@media (max-width:540px){
-    .Pokemon{
-        margin-left:auto;
-        margin-right: auto;
-    }
-    .ListaPokemon{
-        padding: 1rem !important;
-    }
-
+.pokeball {
+  z-index: 1;
+  position: absolute;
+  height: 7.5rem;
+  width: 7.5rem;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  transform: rotate(15deg);
+  filter: invert(100%);
 }
 
-@media(min-width:1440px){
-    .Pokemon{
-        margin: 0.8rem 0.2rem;
-        margin-left: 0.35rem;
-        margin-right: 0.05rem;
-    }
+@media (max-width: 280px) {
+  .Pokemon {
+    margin: 0.8rem 0.3rem;
+  }
 }
 
-@media (min-width:2560px){
-    .col-center{
-        float: none;
-        margin: 0.8rem;
-    }
+@media (max-width: 540px) {
+  .Pokemon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ListaPokemon {
+    padding: 1rem !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .Pokemon {
+    margin: 0.8rem 0.2rem;
+    margin-left: 0.35rem;
+    margin-right: 0.05rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .col-center {
+    float: none;
+    margin: 0.8rem;
+  }
 }

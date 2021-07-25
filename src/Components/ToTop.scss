@@ -1,19 +1,19 @@
 .toTop {
-    position: fixed;
-    z-index: 1000;
-    bottom: 80px;
-    right: 10px;
-    height: 30px;
-    width: 30px;
-    border-radius: 100px;
-    background-color: #ff9191;
-    border: none;
-    text-align: center;
-    color: #ffffff;
-    padding: auto;
+  position: fixed;
+  z-index: 1000;
+  bottom: 80px;
+  right: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 100px;
+  background-color: #e65f5f;
+  border: none;
+  text-align: center;
+  color: #ffffff;
+  padding: auto;
 }
-.toTop:active{
-    border: none;
-    outline: none;
-    background-color : #ff9191aa;
+.toTop:active {
+  border: none;
+  outline: none;
+  background-color: #e65f5faa;
 }

@@ -1,85 +1,84 @@
-footer{
+footer {
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  height: 70px;
+  background-color: #fff;
+  border-top: 2px solid #ff6a6a;
+  padding: auto;
+  display: flex;
+  clear: both;
+
+  p {
+    display: inline;
+    margin: auto;
+  }
+}
+.autor {
+  width: 65px;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  margin: 0;
+
+  p {
+    font-size: 1rem;
+    margin-left: 8px;
+    color: #ff6a6a;
+    font-weight: 500;
+  }
+}
+.contact-section-links {
+  height: 36px;
+  display: flex;
+  width: 35%;
+  justify-items: flex-end;
+  justify-content: flex-end;
+  margin: auto;
+  margin-right: 0px;
+  padding-right: 8px;
+
+  a {
+    font-size: 1.2rem;
+    color: #e65f5f;
+    text-decoration: none;
+    padding: 0px;
+    margin: auto;
+    margin-left: 8px;
+    margin-right: 10px;
+  }
+}
+
+a:active {
+  color: #e65f5faa;
+}
+@media (max-width: 425px) {
+  footer {
     width: 100%;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 0px;
-    height: 70px;
-    background-color: #fff;
-    border-top: 2px solid #ff6a6a;
-    padding: auto;
-    display: flex;
-    clear: both;
-
-    p{
-        display: inline;
-        margin: auto;
+    border-radius: 0px;
+  }
+  .autor {
+    p {
+      font-size: 0.9rem;
     }
-}
-.autor{
-    width: 65px;
-    display: flex;
-    justify-content: flex-start;
-    align-content: center;
-    align-items: center;
-    margin:0;
-
-    p{
-        font-size: 1rem;
-        margin-left: 8px;
-        color: #ff6a6a;
-        font-weight: 500;
+  }
+  .contact-section-links {
+    width: 50%;
+    a {
+      font-size: 0.9rem;
     }
-}
-.contact-section-links{
-    height: 36px;
-    display: flex;
-    width: 35%;
-    justify-items: flex-end;
-    justify-content: flex-end;
-    margin: auto;
-    margin-right: 0px;
-    padding-right: 8px;
-
-    a{
-        font-size: 1.2rem;
-        color: #ff6a6a;
-        text-decoration: none;
-        padding: 0px;
-        margin: auto;
-        margin-left:8px;
-        margin-right:10px;
-    }
+  }
 }
 
-a:active{
-    color : #ff6a6aaa;
-}
-@media(max-width:425px){
-    footer{
-        width: 100%;
-        border-radius: 0px;
+@media (max-width: 768px) {
+  .contact-section-links {
+    a {
+      font-size: 1.5rem;
+      span {
+        display: none;
+      }
     }
-    .autor{
-        p{
-            font-size: 0.9rem;
-        }
-    }
-    .contact-section-links{
-        width: 50%;
-        a{
-            font-size: 0.9rem;
-        }
-    }
-    
-}
-
-@media(max-width:768px){
-    .contact-section-links{
-        a{
-            font-size: 1.5rem;
-            span{
-                display: none;
-            }
-        }
-    }
+  }
 }

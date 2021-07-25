@@ -1,23 +1,24 @@
-*{
-  font-family: 'Roboto', sans-serif;;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-@media(min-width:375){
-    body{
-      margin-right: -1px !important;
-    }
+@media (min-width: 375) {
+  body {
+    margin-right: -1px !important;
   }
- 
-  html::-webkit-scrollbar {
-    width: 7px;     /* Tamaño del scroll en vertical */
-    height: 100%;    /* Tamaño del scroll en horizontal */
-    margin-top: 56px;
-  }
-  html::-webkit-scrollbar-thumb {
-    background: #aaa;
-    border-radius: 4px;
-  }
-  html::-webkit-scrollbar-thumb:hover {
-    background: #b3b3b3;
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-  }
+}
+
+html::-webkit-scrollbar {
+  width: 6px; /* Tamaño del scroll en vertical */
+  height: 100%; /* Tamaño del scroll en horizontal */
+  margin-top: 56px;
+}
+html::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+  width: 2px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
