@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Buscador from "../Components/Buscador";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -7,10 +7,18 @@ import ToTop from "../Components/ToTop";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./Main.scss";
 import Home from "../Components/Home";
+import SplashScreen from "../Components/SplashScreen";
 
 export default function Main() {
   const [visibility, setVisibility] = useState(false);
   const [genSelected, setGenSelected] = useState(false);
+  const [active, setActive] = useState(false);
+
+  useEffect((e) => {
+    setTimeout((e) => {
+      setActive(true);
+    }, 1500);
+  }, []);
 
   const selectGen = () => {
     setGenSelected(true);
@@ -39,27 +47,32 @@ export default function Main() {
   ];
   return (
     <Router>
-      <Header
-        genSelected={genSelected}
-        handleHome={handleHome}
-        handleGen={selectGen}
-      />
-      <Switch>
-        <Route exact path="/">
-          <Home handleGen={selectGen} />
-        </Route>
-        {generationList.map((e, index) => (
-          <Route
-            key={index}
-            exact
-            path={`/Gen-${e.generacion}`}
-            children={<Buscador generation={e.link} />}
+      <SplashScreen />
+      {active && (
+        <>
+          <Header
+            genSelected={genSelected}
+            handleHome={handleHome}
+            handleGen={selectGen}
           />
-        ))}
-        <Route path="*" component={NotFound} />
-      </Switch>
-      <Footer />
-      {visibility && <ToTop />}
+          <Switch>
+            <Route exact path="/">
+              <Home handleGen={selectGen} />
+            </Route>
+            {generationList.map((e, index) => (
+              <Route
+                key={index}
+                exact
+                path={`/Gen-${e.generacion}`}
+                children={<Buscador generation={e.link} />}
+              />
+            ))}
+            <Route path="*" component={NotFound} />
+          </Switch>
+          <Footer />
+          {visibility && <ToTop />}
+        </>
+      )}
     </Router>
   );
 }
