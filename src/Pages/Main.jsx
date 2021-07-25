@@ -10,7 +10,15 @@ import Home from "../Components/Home";
 
 export default function Main() {
   const [visibility, setVisibility] = useState(false);
+  const [genSelected, setGenSelected] = useState(false);
 
+  const selectGen = () => {
+    setGenSelected(true);
+  };
+
+  const handleHome = () => {
+    setGenSelected(false);
+  };
   window.onscroll = () => {
     if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
       setVisibility(true);
@@ -31,10 +39,14 @@ export default function Main() {
   ];
   return (
     <Router>
-      <Header />
+      <Header
+        genSelected={genSelected}
+        handleHome={handleHome}
+        handleGen={selectGen}
+      />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home handleGen={selectGen} />
         </Route>
         {generationList.map((e, index) => (
           <Route

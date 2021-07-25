@@ -7,7 +7,7 @@ export default function SplashScreen() {
   useEffect((e) => {
     setTimeout((e) => {
       setActive(false);
-    }, 1500);
+    }, 2000);
   }, []);
   return (
     <>

@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import titleBall from "./titleBall.png";
 import "./Header.scss";
 
-export default function Header() {
+export default function Header({ handleHome, handleGen, genSelected }) {
   const generationList = [
     { generacion: "I", link: "limit=151&offset=0" },
     { generacion: "II", link: "limit=100&offset=151" },
@@ -20,10 +20,12 @@ export default function Header() {
 
   function handleClick(e) {
     history.push(`/Gen-${e}`);
+    handleGen();
   }
 
   function home() {
     history.push("/");
+    handleHome();
   }
 
   return (
@@ -38,7 +40,10 @@ export default function Header() {
         <h1 className="titulo">Pokédex</h1>
       </div>
       <Navbar.Collapse className="justify-content-end">
-        <Nav className="ml-auto nav">
+        <Nav
+          className="ml-auto nav"
+          style={!genSelected ? { display: "none" } : { display: "inline" }}
+        >
           <NavDropdown title="Generations" id="basic-nav-dropdown">
             {generationList.map((g, index) => {
               return (

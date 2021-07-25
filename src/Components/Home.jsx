@@ -4,11 +4,12 @@ import SplashScreen from "./SplashScreen";
 import icon from "./pngegg.png";
 import "./Home.scss";
 
-export default function Home() {
+export default function Home({ handleGen }) {
   let history = useHistory();
 
   function handleClick(e, el) {
     history.push(`/Gen-${(e, el)}`);
+    handleGen();
   }
 
   return (
