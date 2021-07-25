@@ -6,6 +6,7 @@ import NotFound from "../Components/NotFound";
 import ToTop from "../Components/ToTop";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./Main.scss";
+import Home from "../Components/Home";
 
 export default function Main() {
   const [visibility, setVisibility] = useState(false);
@@ -33,7 +34,7 @@ export default function Main() {
       <Header />
       <Switch>
         <Route exact path="/">
-          <Buscador />
+          <Home />
         </Route>
         {generationList.map((e, index) => (
           <Route

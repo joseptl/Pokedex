@@ -22,6 +22,10 @@ export default function Header() {
     history.push(`/Gen-${e}`);
   }
 
+  function home() {
+    history.push("/");
+  }
+
   return (
     <Navbar
       sticky="top"
@@ -29,7 +33,7 @@ export default function Header() {
       style={{ background: "#e65f5f" }}
       variant="dark"
     >
-      <div className="title-container">
+      <div className="title-container" onClick={home}>
         <img src={titleBall} alt="titleImg" />
         <h1 className="titulo">Pokédex</h1>
       </div>

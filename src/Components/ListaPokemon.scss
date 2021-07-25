@@ -39,6 +39,11 @@
   }
 }
 
+.Pokemon:hover {
+  bottom: 5px;
+  position: relative;
+}
+
 .col-center {
   float: none;
   margin: 0.8rem auto;
