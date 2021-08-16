@@ -87,9 +87,11 @@
 .reset {
   border: none;
   background: #e65f5f;
-  width: 60px;
-  height: 35px;
+  width: 40px !important;
+  height: 40px;
   text-align: center;
+  margin: auto;
+  padding: auto;
   color: #fff;
   border-radius: 100px;
 }
@@ -126,8 +128,5 @@
         }
       }
     }
-  }
-  .reset {
-    width: 35px;
   }
 }

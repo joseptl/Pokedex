@@ -107,9 +107,11 @@ export default function Formulario(props) {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <button className="reset" onClick={props.handleClear}>
-          <li className="fas fa-trash"></li>
-        </button>
+        <div className="reset__container">
+          <button className="reset" onClick={props.handleClear}>
+            <li className="fas fa-trash"></li>
+          </button>
+        </div>
       </form>
     </div>
   );

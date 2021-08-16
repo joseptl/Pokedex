@@ -59,47 +59,65 @@ export default function ListaPokemonsV2({ url }) {
   useEffect(
     (e) => {
       setPokemons([]);
+      const abortController = new AbortController();
       const fetchData = async (url) => {
-        const response = await fetch(url);
-        const json = await response.json();
-        const promises = await Promise.all(
-          json.results.map((e) => fetch(e.url))
-        )
-          .then((responses) => {
-            return responses;
-          })
-          .then((responses) => Promise.all(responses.map((r) => r.json())));
-        const species = await Promise.all(
-          promises.map((e) => fetch(e.species.url))
-        )
-          .then((responses) => {
-            return responses;
-          })
-          .then((responses) => Promise.all(responses.map((r) => r.json())));
-        species.forEach((e, index) =>
-          setPokemons((pokemons) => [
-            ...pokemons,
-            {
-              id: promises[index].id,
-              name: promises[index].name,
-              genera: species[index].genera[7].genus,
-              avatar: promises[index].sprites.front_default,
-              artwork:
-                promises[index].sprites.other["official-artwork"].front_default,
-              weight: promises[index].weight / 10,
-              height: promises[index].height / 10,
-              type1: promises[index].types[0].type.name,
-              type2: promises[index].types[1]
-                ? promises[index].types[1].type.name
-                : "",
-              description: species[index].flavor_text_entries.filter(
-                (e) => e.language.name === "en"
-              )[0].flavor_text,
-            },
-          ])
-        );
+        try {
+          const response = await fetch(url);
+          const json = await response.json();
+          const promises = await Promise.all(
+            json.results.map((e) =>
+              fetch(e.url, { signal: abortController.signal })
+            )
+          )
+            .then((responses) => {
+              return responses;
+            })
+            .then((responses) => Promise.all(responses.map((r) => r.json())));
+          const species = await Promise.all(
+            promises.map((e) => fetch(e.species.url))
+          )
+            .then((responses) => {
+              return responses;
+            })
+            .then((responses) =>
+              Promise.all(responses.map((r) => r.json())).catch((error) =>
+                console.log(error)
+              )
+            );
+          species.forEach((e, index) =>
+            setPokemons((pokemons) => [
+              ...pokemons,
+              {
+                id: promises[index].id,
+                name: promises[index].name,
+                genera: species[index].genera[7].genus,
+                avatar: promises[index].sprites.front_default,
+                artwork:
+                  promises[index].sprites.other["official-artwork"]
+                    .front_default,
+                weight: promises[index].weight / 10,
+                height: promises[index].height / 10,
+                type1: promises[index].types[0].type.name,
+                type2: promises[index].types[1]
+                  ? promises[index].types[1].type.name
+                  : "",
+                description: species[index].flavor_text_entries.filter(
+                  (e) => e.language.name === "en"
+                )[0].flavor_text,
+              },
+            ])
+          );
+        } catch (error) {
+          console.log(error);
+        }
       };
-      fetchData(url);
+      try {
+        fetchData(url);
+      } catch (error) {
+        console.log(error);
+      }
+
+      return () => abortController.abort();
     },
     [url]
   );
